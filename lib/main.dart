@@ -1,3 +1,4 @@
+import 'package:eco_club_mohil_version/utils/constants.dart';
 import 'package:eco_club_mohil_version/view/screens/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -25,10 +26,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      // theme: ThemeData(textTheme: TextTheme()),
+    return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: ColorConstant.backgroundColor,
+      ),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }

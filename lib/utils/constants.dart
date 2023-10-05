@@ -36,4 +36,5 @@ class Assets {
   static const String tnc = 'assets/icons/terms.png';
   static const String privacy = 'assets/icons/insurance.png';
   static const String about = 'assets/icons/information.png';
+  static const String signature = 'assets/icons/signature.png';
 }

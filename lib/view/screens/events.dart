@@ -60,7 +60,9 @@ class EventScreen extends StatelessWidget {
               const SizedBox(height: 20),
               text(text: 'Upcoming Events', isHeading: true),
               const SizedBox(height: 12),
-              const HeaderBar(
+              HeaderBar(
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (contxt) => const EventDetailScreen())),
                   date: '8-10 Oct',
                   image: Assets.environment1,
                   label: 'ENO - National Conference@RTU',
@@ -73,7 +75,9 @@ class EventScreen extends StatelessWidget {
               const SizedBox(height: 20),
               text(text: 'Past Events', isHeading: true),
               const SizedBox(height: 12),
-              const HeaderBar(
+              HeaderBar(
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (contxt) => const EventDetailScreen())),
                   date: '8-10 Oct',
                   image: Assets.environment1,
                   label: 'ENO - National Conference@RTU',
