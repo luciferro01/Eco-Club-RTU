@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:eco_club_mohil_version/view/screens/event_detail.dart';
 import 'package:eco_club_mohil_version/view/widgets/custom_app_bar.dart';
 import 'package:eco_club_mohil_version/view/widgets/custom_container.dart';
 import 'package:eco_club_mohil_version/view/widgets/custom_item.dart';
@@ -43,12 +44,21 @@ class EventScreen extends StatelessWidget {
                 items: [1, 2, 3, 4, 5].map((i) {
                   return Builder(
                     builder: (BuildContext context) {
-                      return CustomContainer(
-                        height: 200,
-                        width: width,
-                        child: const Image(
-                          image: AssetImage(Assets.environment),
-                          fit: BoxFit.contain,
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (contxt) => const EventDetailScreen(),
+                            ),
+                          );
+                        },
+                        child: CustomContainer(
+                          height: 200,
+                          width: width,
+                          child: const Image(
+                            image: AssetImage(Assets.environment),
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       );
                     },
@@ -63,7 +73,11 @@ class EventScreen extends StatelessWidget {
               const SizedBox(height: 20),
               text(text: 'Upcoming Events', isHeading: true),
               const SizedBox(height: 12),
-              const HeaderBar(),
+              const HeaderBar(
+                  date: '8-10 Oct',
+                  image: Assets.environment1,
+                  label: 'ENO - National Conference@RTU',
+                  venue: 'Petroleum'),
               const SizedBox(height: 30),
               const Divider(
                 color: ColorConstant.blackColor,
@@ -72,7 +86,11 @@ class EventScreen extends StatelessWidget {
               const SizedBox(height: 20),
               text(text: 'Past Events', isHeading: true),
               const SizedBox(height: 12),
-              const HeaderBar(),
+              const HeaderBar(
+                  date: '8-10 Oct',
+                  image: Assets.environment1,
+                  label: 'ENO - National Conference@RTU',
+                  venue: 'Petroleum'),
             ],
           ),
         ),

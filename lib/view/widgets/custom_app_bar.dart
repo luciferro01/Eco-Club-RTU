@@ -25,7 +25,7 @@ PreferredSizeWidget customAppBar({
       ),
     ),
     backgroundColor: ColorConstant.whiteBackgroundColor,
-    leading: (isFirstPage || (!isHomePage && isTabBarPage))
+    leading: (!isFirstPage || (!isHomePage && isTabBarPage))
         ? Consumer(
             builder: (context, ref, child) {
               // var tab = ref.watch(currentNavItemProvider);
@@ -52,7 +52,7 @@ PreferredSizeWidget customAppBar({
       Expanded(
         child: Padding(
           // width: 390,
-          padding: isFirstPage || (!isHomePage && isTabBarPage)
+          padding: !isFirstPage || (!isHomePage && isTabBarPage)
               ? const EdgeInsets.only(left: 50, right: 25)
               : const EdgeInsets.symmetric(horizontal: 25),
           child: Row(

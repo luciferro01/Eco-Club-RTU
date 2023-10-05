@@ -15,12 +15,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // String randomImage = Random(headerImages);
-    double width = MediaQuery.sizeOf(context).width;
+    // double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: ColorConstant.backgroundColor,
       appBar: customAppBar(
-          isFirstPage: false,
+          isFirstPage: true,
           label: 'MOHIL',
           context: context,
           isHomePage: true,

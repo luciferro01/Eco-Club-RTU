@@ -5,7 +5,16 @@ import 'package:flutter/material.dart';
 import '../../utils/constants.dart';
 
 class HeaderBar extends StatelessWidget {
-  const HeaderBar({super.key});
+  final String image;
+  final String date;
+  final String label;
+  final String venue;
+  const HeaderBar(
+      {super.key,
+      required this.image,
+      required this.date,
+      required this.label,
+      required this.venue});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +27,9 @@ class HeaderBar extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(Constants.defaultRadius - 10),
-            child: const Image(
+            child: Image(
               image: AssetImage(
-                'assets/images/environment.png',
+                image,
               ),
               height: 160,
               fit: BoxFit.cover,
@@ -33,12 +42,12 @@ class HeaderBar extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: text(
-              text: 'ENO - National Conference @ RTU',
+              text: label,
               isLabel: true,
               fontSize: 22,
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(8.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -59,7 +68,7 @@ class HeaderBar extends StatelessWidget {
                           width: 6,
                         ),
                         Text(
-                          '8-10 Oct',
+                          date,
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
@@ -76,7 +85,7 @@ class HeaderBar extends StatelessWidget {
                           width: 6,
                         ),
                         Text(
-                          'Petroleum',
+                          venue,
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,

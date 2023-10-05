@@ -1,3 +1,4 @@
+import 'package:eco_club_mohil_version/view/widgets/custom_container.dart';
 import 'package:eco_club_mohil_version/view/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
@@ -47,23 +48,11 @@ class CustomItemBar extends StatelessWidget {
             ),
             GestureDetector(
               onTap: onTap,
-              child: Container(
+              child: CustomContainer(
                 height: 100,
                 width: width,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                decoration: BoxDecoration(
-                  color: ColorConstant.whiteBackgroundColor,
-                  border: Border.all(
-                    color: ColorConstant.blackColor,
-                    width: Constants.defaultLineWeight,
-                  ),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(
-                      Constants.defaultRadius - 20,
-                    ),
-                  ),
-                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
