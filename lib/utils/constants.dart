@@ -16,7 +16,7 @@ class ColorConstant {
 
 class Constants {
   static const double defaultLineWeight = 2.6;
-  static const double defaultRadius = 38;
+  static const double defaultRadius = 36;
 }
 
 class Assets {

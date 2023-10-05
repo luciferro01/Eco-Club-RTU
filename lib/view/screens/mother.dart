@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../controllers/bottom_tab_bar_provider.dart';
 import '../widgets/custom_bottom_navigation_bar.dart';
-import 'package:eco_club_mohil_version/view/screens/community.dart';
 import 'package:eco_club_mohil_version/view/screens/events.dart';
 import 'package:eco_club_mohil_version/view/screens/home.dart';
 import 'package:eco_club_mohil_version/view/screens/learn.dart';

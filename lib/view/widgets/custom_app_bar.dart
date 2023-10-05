@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../utils/constants.dart';
+import '../screens/menu.dart';
 
 PreferredSizeWidget customAppBar({
   required bool isFirstPage,
   required String label,
-  BuildContext? context,
+  required BuildContext context,
 }) {
   return AppBar(
     shadowColor: Colors.transparent,
@@ -21,7 +22,7 @@ PreferredSizeWidget customAppBar({
     backgroundColor: ColorConstant.whiteBackgroundColor,
     leading: isFirstPage
         ? GestureDetector(
-            onTap: () => Navigator.of(context!).pop(),
+            onTap: () => Navigator.of(context).pop(),
             child: const Icon(
               Icons.arrow_back_ios_rounded,
               size: 30,
@@ -61,11 +62,14 @@ PreferredSizeWidget customAppBar({
                 ],
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => MenuScreen()));
+                },
                 child: const Image(
-                  image: AssetImage('assets/bottomImages/house.png'),
-                  height: 20,
-                  width: 20,
+                  image: AssetImage('assets/bottomImages/menu.png'),
+                  height: 30,
+                  width: 30,
                 ),
               )
             ],
