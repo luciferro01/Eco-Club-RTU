@@ -13,25 +13,23 @@ class MotherScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Consumer(
-          builder: (context, ref, child) {
-            final currentItem = ref.watch(currentNavItemProvider);
-            return _buildScreen(currentItem);
-          },
-        ),
-        bottomNavigationBar: Consumer(
-          builder: (context, ref, child) {
-            final currentItem = ref.watch(currentNavItemProvider);
-            return CustomBottomNavigationBar(
-              items: NavigationItem.values,
-              onTap: (item) =>
-                  ref.read(currentNavItemProvider.notifier).state = item,
-              selectedItem: currentItem,
-            );
-          },
-        ),
+    return Scaffold(
+      body: Consumer(
+        builder: (context, ref, child) {
+          final currentItem = ref.watch(currentNavItemProvider);
+          return _buildScreen(currentItem);
+        },
+      ),
+      bottomNavigationBar: Consumer(
+        builder: (context, ref, child) {
+          final currentItem = ref.watch(currentNavItemProvider);
+          return CustomBottomNavigationBar(
+            items: NavigationItem.values,
+            onTap: (item) =>
+                ref.read(currentNavItemProvider.notifier).state = item,
+            selectedItem: currentItem,
+          );
+        },
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:eco_club_mohil_version/controllers/bottom_tab_bar_provider.dart';
+import 'package:eco_club_mohil_version/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
@@ -17,12 +18,16 @@ class CustomBottomNavigationBar extends StatelessWidget {
       String label, String image, bool isUtmostLeft, bool isSelected) {
     return Container(
       decoration: BoxDecoration(
-        color: isSelected ? Color(0xFFACD27D) : const Color(0xFFFFFFFF),
+        color: isSelected
+            ? ColorConstant.mainColor
+            : ColorConstant.whiteBackgroundColor,
         border: Border(
           left: !isUtmostLeft
-              ? const BorderSide(color: Colors.black, width: 3)
+              ? const BorderSide(
+                  color: Colors.black, width: Constants.defaultLineWeight)
               : BorderSide.none,
-          top: const BorderSide(color: Colors.black, width: 3),
+          top: const BorderSide(
+              color: Colors.black, width: Constants.defaultLineWeight - 0.3),
         ),
       ),
       height: 70,
