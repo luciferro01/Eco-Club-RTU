@@ -1,5 +1,5 @@
 import 'package:eco_club_mohil_version/controllers/bottom_tab_bar_provider.dart';
-import 'package:eco_club_mohil_version/view/screens/home.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -7,6 +7,7 @@ import '../../utils/constants.dart';
 import '../screens/menu.dart';
 
 PreferredSizeWidget customAppBar({
+  bool? isProfilePage,
   required bool isFirstPage,
   required String label,
   required BuildContext context,
@@ -62,7 +63,7 @@ PreferredSizeWidget customAppBar({
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  isHomePage
+                  isHomePage || isProfilePage != null
                       ? const Text(
                           'Morning, ',
                           style: TextStyle(
@@ -85,7 +86,7 @@ PreferredSizeWidget customAppBar({
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const MenuScreen(),
+                      builder: (context) => MenuScreen(),
                     ),
                   );
                 },

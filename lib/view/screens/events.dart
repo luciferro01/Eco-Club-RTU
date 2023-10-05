@@ -1,13 +1,12 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:eco_club_mohil_version/view/screens/event_detail.dart';
 import 'package:eco_club_mohil_version/view/widgets/custom_app_bar.dart';
 import 'package:eco_club_mohil_version/view/widgets/custom_container.dart';
-import 'package:eco_club_mohil_version/view/widgets/custom_item.dart';
 import 'package:eco_club_mohil_version/view/widgets/custom_text.dart';
 import 'package:eco_club_mohil_version/view/widgets/header_bars.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/constants.dart';
+import '../widgets/custom_carousel.dart';
 
 class EventScreen extends StatelessWidget {
   const EventScreen({super.key});
@@ -32,36 +31,24 @@ class EventScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CarouselSlider(
-                options: CarouselOptions(
-                  height: 200.0,
-                  viewportFraction: 0.8,
-                  enlargeCenterPage: true,
-                  autoPlay: true,
-                  animateToClosest: true,
-                  autoPlayCurve: Curves.easeInBack,
-                ),
+              CustomCarousel(
                 items: [1, 2, 3, 4, 5].map((i) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (contxt) => const EventDetailScreen(),
-                            ),
-                          );
-                        },
-                        child: CustomContainer(
-                          height: 200,
-                          width: width,
-                          child: const Image(
-                            image: AssetImage(Assets.environment),
-                            fit: BoxFit.contain,
-                          ),
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (contxt) => const EventDetailScreen(),
                         ),
                       );
                     },
+                    child: CustomContainer(
+                      height: 200,
+                      width: width,
+                      child: const Image(
+                        image: AssetImage(Assets.environment),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
                   );
                 }).toList(),
               ),

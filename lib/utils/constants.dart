@@ -27,4 +27,13 @@ class Assets {
   static const String account = 'assets/bottomImages/account.png';
   static const String environment = 'assets/images/environment.png';
   static const String environment1 = 'assets/images/environment1.png';
+
+  static const String certificate = 'assets/icons/certificate.png';
+  static const String badges = 'assets/icons/medal.png';
+  static const String developer = 'assets/icons/web-development.png';
+  static const String logOut = 'assets/icons/exit.png';
+  static const String deleteProfile = 'assets/icons/delete.png';
+  static const String tnc = 'assets/icons/terms.png';
+  static const String privacy = 'assets/icons/insurance.png';
+  static const String about = 'assets/icons/information.png';
 }

@@ -48,12 +48,12 @@ class HeaderBar extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
                 Row(
@@ -63,13 +63,13 @@ class HeaderBar extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Icon(Icons.calendar_today_rounded),
-                        SizedBox(
+                        const Icon(Icons.calendar_today_rounded),
+                        const SizedBox(
                           width: 6,
                         ),
                         Text(
                           date,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
                           ),
@@ -80,13 +80,13 @@ class HeaderBar extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Icon(Icons.apartment_rounded),
-                        SizedBox(
+                        const Icon(Icons.apartment_rounded),
+                        const SizedBox(
                           width: 6,
                         ),
                         Text(
                           venue,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
                           ),
