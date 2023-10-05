@@ -1,4 +1,7 @@
+import 'package:eco_club_mohil_version/controllers/bottom_tab_bar_provider.dart';
+import 'package:eco_club_mohil_version/view/screens/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../utils/constants.dart';
 import '../screens/menu.dart';
@@ -7,6 +10,8 @@ PreferredSizeWidget customAppBar({
   required bool isFirstPage,
   required String label,
   required BuildContext context,
+  required bool isHomePage,
+  required bool isTabBarPage,
 }) {
   return AppBar(
     shadowColor: Colors.transparent,
@@ -20,21 +25,34 @@ PreferredSizeWidget customAppBar({
       ),
     ),
     backgroundColor: ColorConstant.whiteBackgroundColor,
-    leading: isFirstPage
-        ? GestureDetector(
-            onTap: () => Navigator.of(context).pop(),
-            child: const Icon(
-              Icons.arrow_back_ios_rounded,
-              size: 30,
-              color: ColorConstant.blackColor,
-            ),
+    leading: (isFirstPage || (!isHomePage && isTabBarPage))
+        ? Consumer(
+            builder: (context, ref, child) {
+              // var tab = ref.watch(currentNavItemProvider);
+              return GestureDetector(
+                onTap: () => (!isHomePage && isTabBarPage)
+                    ? ref.read(currentNavItemProvider.notifier).state =
+                        NavigationItem.Home
+                    // ? Navigator.of(context).pushReplacement(
+                    //     MaterialPageRoute(
+                    //       builder: (context) => const HomeScreen(),
+                    //     ),
+                    //   )
+                    : Navigator.of(context).pop(),
+                child: const Icon(
+                  Icons.arrow_back_ios_rounded,
+                  size: 30,
+                  color: ColorConstant.blackColor,
+                ),
+              );
+            },
           )
         : null,
     actions: [
       Expanded(
         child: Padding(
           // width: 390,
-          padding: isFirstPage
+          padding: isFirstPage || (!isHomePage && isTabBarPage)
               ? const EdgeInsets.only(left: 50, right: 25)
               : const EdgeInsets.symmetric(horizontal: 25),
           child: Row(
@@ -44,13 +62,15 @@ PreferredSizeWidget customAppBar({
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text(
-                    'Morning, ',
-                    style: TextStyle(
-                      fontSize: 26,
-                      color: Colors.black,
-                    ),
-                  ),
+                  isHomePage
+                      ? const Text(
+                          'Morning, ',
+                          style: TextStyle(
+                            fontSize: 26,
+                            color: Colors.black,
+                          ),
+                        )
+                      : const SizedBox(),
                   Text(
                     '$label!',
                     style: const TextStyle(
@@ -64,7 +84,10 @@ PreferredSizeWidget customAppBar({
               InkWell(
                 onTap: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => MenuScreen()));
+                    MaterialPageRoute(
+                      builder: (context) => const MenuScreen(),
+                    ),
+                  );
                 },
                 child: const Image(
                   image: AssetImage('assets/bottomImages/menu.png'),

@@ -25,4 +25,6 @@ class Assets {
   static const String community = 'assets/bottomImages/community.png';
   static const String learn = 'assets/bottomImages/reading-book.png';
   static const String account = 'assets/bottomImages/account.png';
+  static const String environment = 'assets/images/environment.png';
+  static const String environment1 = 'assets/images/environment1.png';
 }

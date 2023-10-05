@@ -5,7 +5,7 @@ import '../../controllers/bottom_tab_bar_provider.dart';
 import '../widgets/custom_bottom_navigation_bar.dart';
 import 'package:eco_club_mohil_version/view/screens/events.dart';
 import 'package:eco_club_mohil_version/view/screens/home.dart';
-import 'package:eco_club_mohil_version/view/screens/learn.dart';
+import 'package:eco_club_mohil_version/view/screens/explore.dart';
 
 class MotherScreen extends StatelessWidget {
   const MotherScreen({super.key});
@@ -42,7 +42,7 @@ class MotherScreen extends StatelessWidget {
       case NavigationItem.Events:
         return const EventScreen();
       case NavigationItem.Learn:
-        return const LearnScreen();
+        return const ExploreScreen();
 
       default:
         return Container(); // Handle other cases
