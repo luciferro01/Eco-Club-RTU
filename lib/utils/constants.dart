@@ -18,3 +18,11 @@ class Constants {
   static const double defaultLineWeight = 2.6;
   static const double defaultRadius = 38;
 }
+
+class Assets {
+  static const String house = 'assets/bottomImages/house.png';
+  static const String events = 'assets/bottomImages/calendar-check.png';
+  static const String community = 'assets/bottomImages/community.png';
+  static const String learn = 'assets/bottomImages/reading-book.png';
+  static const String account = 'assets/bottomImages/account.png';
+}

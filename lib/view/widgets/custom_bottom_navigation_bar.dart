@@ -14,8 +14,14 @@ class CustomBottomNavigationBar extends StatelessWidget {
     super.key,
   });
 
-  Widget customNavigatioBarItem(
-      String label, String image, bool isUtmostLeft, bool isSelected) {
+  static const List<Map<String, String>> bottomNavBarItems = [
+    {'image': Assets.house, 'label': 'Home'},
+    {'image': Assets.events, 'label': 'Events'},
+    // {'image': Assets.community, 'label': 'Community'},
+    {'image': Assets.learn, 'label': 'Explore'},
+  ];
+
+  Widget customNavigatioBarItem(bool isUtmostLeft, bool isSelected, int index) {
     return Container(
       decoration: BoxDecoration(
         color: isSelected
@@ -35,16 +41,18 @@ class CustomBottomNavigationBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Image(
-            image: AssetImage('assets/bottomImages/house.png'),
-            height: 20,
-            width: 20,
+          Image(
+            image: AssetImage(bottomNavBarItems[index]['image']!),
+            height: 25,
+            width: 25,
           ),
-          Text(
-            label,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
+          FittedBox(
+            child: Text(
+              bottomNavBarItems[index]['label']!,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
             ),
           )
         ],
@@ -57,18 +65,36 @@ class CustomBottomNavigationBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        ...items.map(
-          (e) => Expanded(
-            child: InkWell(
-              onTap: () {
-                return onTap(e);
-              },
-              splashColor: Colors.transparent,
-              child: customNavigatioBarItem('Home', '',
-                  items.first == e ? true : false, e == selectedItem),
-            ),
-          ),
-        ),
+        // ...items.map(
+        //   (e) => Expanded(
+        //     child: InkWell(
+        //       onTap: () {
+        //         return onTap(e);
+        //       },
+        //       splashColor: Colors.transparent,
+        //       child: customNavigatioBarItem(
+        //         items.first == e ? true : false,
+        //         e == selectedItem,
+        //       ),
+        //     ),
+        //   ),
+        // ),
+
+        ...items.asMap().keys.map(
+          (index) {
+            var e = items[index];
+            return Expanded(
+              child: InkWell(
+                onTap: () {
+                  return onTap(e);
+                },
+                splashColor: Colors.transparent,
+                child: customNavigatioBarItem(
+                    items.first == e ? true : false, e == selectedItem, index),
+              ),
+            );
+          },
+        )
       ],
     );
   }

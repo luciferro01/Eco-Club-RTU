@@ -4,9 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 enum NavigationItem {
   Home,
-  Community,
-  Learn,
   Events,
+  // Community,
+  Learn,
 }
 
 final currentNavItemProvider = StateProvider<NavigationItem>((ref) {

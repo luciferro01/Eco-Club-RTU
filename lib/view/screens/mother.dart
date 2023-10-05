@@ -38,8 +38,8 @@ class MotherScreen extends StatelessWidget {
     switch (item) {
       case NavigationItem.Home:
         return const HomeScreen();
-      case NavigationItem.Community:
-        return const CommunityScreen();
+      // case NavigationItem.Community:
+      //   return const CommunityScreen();
       case NavigationItem.Events:
         return const EventScreen();
       case NavigationItem.Learn:
