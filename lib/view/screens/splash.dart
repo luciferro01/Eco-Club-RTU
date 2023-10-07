@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:eco_club_mohil_version/utils/constants.dart';
 import 'package:eco_club_mohil_version/view/screens/mother.dart';
 import 'package:flutter/material.dart';
 
@@ -27,6 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      backgroundColor: ColorConstant.whiteBackgroundColor,
       body: Center(
         child: Image(
           image: AssetImage('assets/logo/eco_club_rtu.png'),
